@@ -18,6 +18,12 @@
 <script>
     const map = L.map('map').setView([38.1157, 13.3615], 13);
 
+    // Vengono passate le coordinate da altre applicazioni
+    const params = new URLSearchParams(window.location.search);
+    const lat = parseFloat(params.get("lat")) || 38.1157;
+    const lng = parseFloat(params.get("lng")) || 13.3615;
+    const map = L.map('map').setView([lat, lng], 13);
+    
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
