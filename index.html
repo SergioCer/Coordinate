@@ -18,8 +18,8 @@
 <script>
     // Vengono passate, se presenti, le coordinate da altre applicazioni, altrimenti default.
     const params = new URLSearchParams(window.location.search);
-    const defaultLat = 38.1157;
-    const defaultLng = 13.3615;
+    const defaultLat = 37.98058;
+    const defaultLng = 12.55220;
     const lat = parseFloat(params.get("lat"));
     const lng = parseFloat(params.get("lng"));
     const finalLat = (!isNaN(lat)) ? lat : defaultLat;
