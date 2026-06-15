@@ -16,13 +16,15 @@
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-    const map = L.map('map').setView([38.1157, 13.3615], 13);
-
-    // Vengono passate le coordinate da altre applicazioni
+    // Vengono passate, se presenti, le coordinate da altre applicazioni, altrimenti default.
     const params = new URLSearchParams(window.location.search);
-    const lat = parseFloat(params.get("lat")) || 38.1157;
-    const lng = parseFloat(params.get("lng")) || 13.3615;
-    const map = L.map('map').setView([lat, lng], 13);
+    const defaultLat = 38.1157;
+    const defaultLng = 13.3615;
+    const lat = parseFloat(params.get("lat"));
+    const lng = parseFloat(params.get("lng"));
+    const finalLat = (!isNaN(lat)) ? lat : defaultLat;
+    const finalLng = (!isNaN(lng)) ? lng : defaultLng;
+    const map = L.map('map').setView([finalLat, finalLng], 13);
     
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
