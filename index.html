@@ -24,7 +24,7 @@
     const lng = parseFloat(params.get("lng"));
     const finalLat = (!isNaN(lat)) ? lat : defaultLat;
     const finalLng = (!isNaN(lng)) ? lng : defaultLng;
-    const map = L.map('map').setView([finalLat, finalLng], 13);
+    const map = L.map('map').setView([finalLat, finalLng], 11);
     
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
@@ -39,7 +39,17 @@
 
         alert(`Lat: ${lat}\nLng: ${lng}`);
     });
-</script>
 
+    L.marker([finalLat, finalLng]).addTo(map);
+
+    L.circle([finalLat, finalLng], {
+        radius: 80,          // metri
+        color: "#2563eb",
+        fillColor: "#3b82f6",
+        fillOpacity: 0.25,
+        weight: 2
+    }).addTo(map);    
+
+</script>
 </body>
 </html>
