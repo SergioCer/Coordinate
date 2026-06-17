@@ -24,7 +24,7 @@
     const lng = parseFloat(params.get("lng"));
     const finalLat = (!isNaN(lat)) ? lat : defaultLat;
     const finalLng = (!isNaN(lng)) ? lng : defaultLng;
-    const map = L.map('map').setView([finalLat, finalLng], 11);
+    const map = L.map('map').setView([finalLat, finalLng], 12);
     
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
